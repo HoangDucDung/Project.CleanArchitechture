@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Project.Controller.Auth</name>
+    </assembly>
+    <members>
+        <member name="M:Project.Controller.Auth.Controllers.AuthController.TestAuth(System.Nullable{System.Guid})">
+            <summary>
+            Test Authen
+            </summary>
+            <param name="Id">GuiId Data</param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.Controller.Auth.Controllers.AuthController.TestPostAuth(Project.Controller.Auth.Controllers.TestModel)">
+            <summary>
+            Test Post Authen
+            </summary>
+            <param name="Id">GuiId Data</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
