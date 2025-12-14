@@ -6,7 +6,6 @@ namespace Project.Libs.Exceptions
     {
         public AuthException(string message) : base(message)
         {
-            StatusCode = HttpStatusCode.Unauthorized;
         }
 
         public override HttpStatusCode StatusCode { get; set; } = HttpStatusCode.Unauthorized;
