@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Project.Application\Project.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Project.Domain\Project.Domain.csproj" />
+    <ProjectReference Include="..\..\Libs\Project.Host.Base\Project.Host.Base.csproj" />
   </ItemGroup>
 
 </Project>

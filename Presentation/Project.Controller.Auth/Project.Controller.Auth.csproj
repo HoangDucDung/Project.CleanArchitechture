@@ -14,9 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Extensions\Project.Host.Base\Project.Host.Base.csproj" />
-		<ProjectReference Include="..\..\Extensions\Project.Middelware\Project.Middelware.csproj" />
-		<ProjectReference Include="..\Project.Controller.Host\Project.Controller.Host.csproj" />
+	  <ProjectReference Include="..\Project.Controller.Host\Project.Controller.Host.csproj" />
 	</ItemGroup>
 
 </Project>

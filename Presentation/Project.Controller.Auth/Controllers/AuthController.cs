@@ -1,36 +1,29 @@
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Project.Application.Contract.Models.Auths;
+using Project.Application.Contract.Models.Auths.Logins;
+using Project.Application.Contract.Services.Auths;
 using Project.Controller.Base.Controller;
+using Project.Host.Base.Lazyloads;
 
 namespace Project.Controller.Auth.Controllers
 {
-    public class AuthController : BaseController
+    [AllowAnonymous]
+    public class AuthController(ILazyloadProvider lazyloadProvider) : BaseController(lazyloadProvider)
     {
-        /// <summary>
-        /// Test Authen
-        /// </summary>
-        /// <param name="Id">GuiId Data</param>
-        /// <returns></returns>
-        [HttpGet("test-auth")]
-        public Task<string> TestAuth(Guid? Id)
-        {
-            return Task.FromResult("Xin ch�o");
-        }
+        IAuthService _authService => _lazyloadProvider.LazyGetRequiredService<IAuthService>();
 
         /// <summary>
-        /// Test Post Authen
+        /// Đăng nhập
         /// </summary>
-        /// <param name="Id">GuiId Data</param>
+        /// <param name="param">GuiId Data</param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        [HttpPost("test-post")]
-        public Task<string> TestPostAuth([FromBody] TestModel? Id)
+        [HttpPost("Login")]
+        public async Task<ResAuthenticationDto> LoginAsync([FromBody] ReqUserLoginDto param, CancellationToken cancellationToken = default)
         {
-            return Task.FromResult("Xin ch�o");
+            var res = await _authService.LoginAsync(param, cancellationToken);
+            return res;
         }
-    }
-
-    public class TestModel
-    {
-        public Guid? Id { get; set; }
-        public string? Name { get; set; }
     }
 }

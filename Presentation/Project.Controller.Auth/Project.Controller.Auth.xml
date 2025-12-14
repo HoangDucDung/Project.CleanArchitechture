@@ -4,18 +4,12 @@
         <name>Project.Controller.Auth</name>
     </assembly>
     <members>
-        <member name="M:Project.Controller.Auth.Controllers.AuthController.TestAuth(System.Nullable{System.Guid})">
+        <member name="M:Project.Controller.Auth.Controllers.AuthController.LoginAsync(Project.Application.Contract.Models.Auths.Logins.ReqUserLoginDto,System.Threading.CancellationToken)">
             <summary>
-            Test Authen
+            Đăng nhập
             </summary>
-            <param name="Id">GuiId Data</param>
-            <returns></returns>
-        </member>
-        <member name="M:Project.Controller.Auth.Controllers.AuthController.TestPostAuth(Project.Controller.Auth.Controllers.TestModel)">
-            <summary>
-            Test Post Authen
-            </summary>
-            <param name="Id">GuiId Data</param>
+            <param name="param">GuiId Data</param>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
     </members>
