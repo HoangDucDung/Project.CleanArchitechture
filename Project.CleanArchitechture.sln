@@ -5,11 +5,11 @@ VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{87341C1C-AD38-4F45-BC39-14F996327C6D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{87341C1C-AD38-4F45-BC39-14F996327C6D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3D025232-EB25-42C0-8B7F-E87BB218B73F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{88E7C517-FB8E-487B-AA07-20BA3B6B8DC4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{88E7C517-FB8E-487B-AA07-20BA3B6B8DC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E9DDAE89-E015-4681-B804-066F7743AC68}"
 EndProject
@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Host.Base", "Libs\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Libs", "Libs\Project.Libs\Project.Libs.csproj", "{BA4B7D7D-22F7-41C4-8723-55DAADC47E5D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configs", "Configs", "{8827030C-C931-4E05-9F3C-4F025260DB2B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{8827030C-C931-4E05-9F3C-4F025260DB2B}"
 	ProjectSection(SolutionItems) = preProject
 		Configs\auth.json = Configs\auth.json
 		Configs\connection.json = Configs\connection.json
@@ -47,6 +47,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Controller.Notification", "Presentation\Project.Controller.Notification\Project.Controller.Notification.csproj", "{A42A083E-CC85-4BF8-B1DB-C8F0F5C28AFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Infastructure.Kafka", "Infrastructure\Project.Infastructure.Kafka\Project.Infastructure.Kafka.csproj", "{61433463-C23E-48DF-8723-9198CA4DF1C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Woker", "Woker", "{3E33429D-7948-4458-AF36-B9123F57DBAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Worker.Base", "Presentation\Project.Worker.Base\Project.Worker.Base.csproj", "{6EE03922-FC7C-48CB-8694-A2EC193D2C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Worker.TestKafka", "Infrastructure\Project.Worker.TestKafka\Project.Worker.TestKafka.csproj", "{0048A76F-30EF-4C87-BDD5-575F04DC11C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +116,14 @@ Global
 		{61433463-C23E-48DF-8723-9198CA4DF1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61433463-C23E-48DF-8723-9198CA4DF1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61433463-C23E-48DF-8723-9198CA4DF1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0048A76F-30EF-4C87-BDD5-575F04DC11C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0048A76F-30EF-4C87-BDD5-575F04DC11C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0048A76F-30EF-4C87-BDD5-575F04DC11C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0048A76F-30EF-4C87-BDD5-575F04DC11C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +143,9 @@ Global
 		{C1EA6A93-DE0D-4194-BFD8-22D39E462860} = {3D025232-EB25-42C0-8B7F-E87BB218B73F}
 		{A42A083E-CC85-4BF8-B1DB-C8F0F5C28AFD} = {E9DDAE89-E015-4681-B804-066F7743AC68}
 		{61433463-C23E-48DF-8723-9198CA4DF1C2} = {3D025232-EB25-42C0-8B7F-E87BB218B73F}
+		{3E33429D-7948-4458-AF36-B9123F57DBAA} = {E9DDAE89-E015-4681-B804-066F7743AC68}
+		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E} = {3E33429D-7948-4458-AF36-B9123F57DBAA}
+		{0048A76F-30EF-4C87-BDD5-575F04DC11C2} = {3E33429D-7948-4458-AF36-B9123F57DBAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AFEDBB5-198B-41F2-ACEA-803F4D249A81}
