@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Confluent.Kafka;
+using Microsoft.Extensions.DependencyInjection;
+using Project.Application.Contract.MessageBroker;
 using Project.Application.Contract.Services.Auths;
 using Project.Application.Services.Auths;
+using Project.Infastructure.Kafka.Consumer;
 
 namespace Project.Application
 {
@@ -21,6 +24,14 @@ namespace Project.Application
         {
             // Configure application middleware here if needed
             services.AddScoped<IAuthService, AuthService>();
+            return services;
+        }
+
+        public static IServiceCollection UseMessageBrokerFactory(this IServiceCollection services)
+        {
+            //Open Generic Registration (Dấu <> nghĩa là Bất kỳ kiểu T nào cũng được)
+            services.AddSingleton(typeof(IMessageConsumer<>), typeof(KafkaConsumer<>));
+            services.AddSingleton(typeof(IDeserializer<>), typeof(JsonDeserializer<>));
             return services;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Confluent.Kafka;
 using Microsoft.Extensions.Options;
 using Project.Application.Contract.MessageBroker;
+using Project.Application.Contract.Models.MessageBroker;
 
 namespace Project.Infastructure.Kafka.Consumer
 {
@@ -13,7 +14,7 @@ namespace Project.Infastructure.Kafka.Consumer
         {
             var config = new ConsumerConfig
             {
-                BootstrapServers = optionKafka.Value.ConnectionKafka,
+                BootstrapServers = optionKafka.Value.BootstrapServers,
                 GroupId = optionKafka.Value.GroupId,
                 AutoOffsetReset = AutoOffsetReset.Earliest,
                 EnableAutoCommit = false,

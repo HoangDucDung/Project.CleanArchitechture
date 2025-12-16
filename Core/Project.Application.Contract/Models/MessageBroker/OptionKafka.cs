@@ -1,0 +1,11 @@
+﻿namespace Project.Application.Contract.Models.MessageBroker
+{
+    public class OptionKafka
+    {
+        public string BootstrapServers { get; set; } = string.Empty;
+
+        public string GroupId { get; set; } = string.Empty;
+
+        public string Topic { get; set; } = string.Empty;
+    }
+}

@@ -1,5 +1,7 @@
-using Project.Application.Contract.MessageBroker;
+using Project.Application;
+using Project.Application.Contract.Models.MessageBroker;
 using Project.Host.Base.Bases;
+using Project.Host.Base.Lazyloads;
 using Project.Worker.TestKafka.Service;
 
 namespace Project.Worker.TestKafka
@@ -19,7 +21,9 @@ namespace Project.Worker.TestKafka
 
             builder.ConfigureServices((context, services) =>
             {
-                services.Configure<OptionKafka>(context.Configuration);
+                services.AddSingleton<ILazyloadProvider, LazyloadProvider>();
+                services.UseMessageBrokerFactory();
+                services.Configure<OptionKafka>(context.Configuration.GetSection("OptionKafka"));
                 services.AddHostedService<TestWorker>();
             });
 

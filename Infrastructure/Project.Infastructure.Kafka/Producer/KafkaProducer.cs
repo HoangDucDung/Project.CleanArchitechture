@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Project.Application.Contract.MessageBroker;
+using Project.Application.Contract.Models.MessageBroker;
 
 namespace Project.Infastructure.Kafka.Producer
 {
@@ -15,7 +16,7 @@ namespace Project.Infastructure.Kafka.Producer
         {
             var config = new ProducerConfig
             {
-                BootstrapServers = optionKafka.Value.ConnectionKafka,
+                BootstrapServers = optionKafka.Value.BootstrapServers,
                 Acks = Acks.All,
                 EnableIdempotence = true,
                 MaxInFlight = 5,

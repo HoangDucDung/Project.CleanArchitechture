@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Project.Application.Contract\Project.Application.Contract.csproj" />
+    <ProjectReference Include="..\..\Core\Project.Application\Project.Application.csproj" />
     <ProjectReference Include="..\..\Libs\Project.Host.Base\Project.Host.Base.csproj" />
   </ItemGroup>
 </Project>

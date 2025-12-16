@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-Project.Worker.TestKafka-7d460d27-00cf-4deb-b456-753ff272f20d</UserSecretsId>
+    <UserSecretsId>dotnet-Project.Worker.TestKafka-3a5ea43f-d83b-434c-81d6-a7bdf27e7bff</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Presentation\Project.Worker.Base\Project.Worker.Base.csproj" />
+    <ProjectReference Include="..\..\Libs\Project.Host.Base\Project.Host.Base.csproj" />
+    <ProjectReference Include="..\Project.Worker.Base\Project.Worker.Base.csproj" />
   </ItemGroup>
 </Project>

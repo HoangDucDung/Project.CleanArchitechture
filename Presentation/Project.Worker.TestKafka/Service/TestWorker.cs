@@ -5,13 +5,13 @@ using Project.Worker.Base;
 
 namespace Project.Worker.TestKafka.Service
 {
-    internal class TestWorker(ILazyloadProvider lazyloadProvider, IOptions<OptionKafka> options) : WorkerKafkaBase<TestWorker, string>(lazyloadProvider)
+    internal class TestWorker(ILazyloadProvider lazyloadProvider) : WorkerKafkaBase<TestWorker, string>(lazyloadProvider)
     {
 
         protected override Task DoWork(string message, CancellationToken cancellationToken)
         {
-
-            throw new NotImplementedException();
+            Console.WriteLine($"Received message: {message}");
+            return Task.CompletedTask;
         }
     }
 }
