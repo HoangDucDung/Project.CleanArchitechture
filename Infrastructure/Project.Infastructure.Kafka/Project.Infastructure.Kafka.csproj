@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Project.Application.Contract\Project.Application.Contract.csproj" />
+    <ProjectReference Include="..\..\Libs\Project.Host.Base\Project.Host.Base.csproj" />
+    <ProjectReference Include="..\..\Libs\Project.Libs\Project.Libs.csproj" />
   </ItemGroup>
 
 </Project>

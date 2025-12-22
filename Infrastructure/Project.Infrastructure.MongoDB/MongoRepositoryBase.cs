@@ -19,7 +19,7 @@ namespace Project.Infrastructure.MongoDB
         // Cấu hình connection string (Nên lấy từ config file)
         private readonly string _connectionString;
 
-        public MongoRepositoryBase(IOptions<ConnectionConfig> options, ILazyloadProvider lazyloadProvider)
+        public MongoRepositoryBase(IOptions<ConnectionString> options, ILazyloadProvider lazyloadProvider)
         {
             _lazyloadProvider = lazyloadProvider;
             _connectionString = options.Value.MongoDB;

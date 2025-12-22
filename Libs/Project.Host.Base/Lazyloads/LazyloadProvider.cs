@@ -13,13 +13,13 @@ namespace Project.Host.Base.Lazyloads
             _serviceProvider = serviceProvider;
         }
 
-        public T LazyGetRequiredService<T>()
+        public T GetRequiredService<T>()
         {
             var service = _lazyServices.GetOrAdd(typeof(T), type => new Lazy<object?>(() => _serviceProvider.GetRequiredService(type)));
             return (T)service.Value!;
         }
 
-        public T? LazyGetService<T>()
+        public T? GetService<T>()
         {
             var service = _lazyServices.GetOrAdd(typeof(T), type => new Lazy<object?>(() => _serviceProvider.GetService(type)));
             return (T)service.Value!;

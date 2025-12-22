@@ -34,7 +34,7 @@ namespace Project.Controller.Notification
             builder.Services.UserDomainManagerServiceFactory();
 
             // Đăng ký các options
-            builder.Services.Configure<ConnectionConfig>(builder.Configuration);
+            builder.Services.Configure<ConnectionString>(builder.Configuration);
 
             var app = builder.Build();
 

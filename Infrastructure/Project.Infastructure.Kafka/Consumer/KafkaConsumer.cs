@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Project.Application.Contract.MessageBroker;
 using Project.Application.Contract.Models.MessageBroker;
+using Project.Libs.Exceptions;
 
 namespace Project.Infastructure.Kafka.Consumer
 {
@@ -10,12 +11,17 @@ namespace Project.Infastructure.Kafka.Consumer
         private readonly IConsumer<string, TValue> _consumer;
         private readonly string _topic;
 
-        public KafkaConsumer(IOptions<OptionKafka> optionKafka, IDeserializer<TValue> value)
+        public KafkaConsumer(IOptions<KafkaConfig> KafkaConfig, IDeserializer<TValue> value)
         {
+            if (KafkaConfig.Value == null || KafkaConfig.Value.Cunsumer == null)
+            {
+                throw new BusinessException("Không lấy được Kafka consumer options.");
+            }
+
             var config = new ConsumerConfig
             {
-                BootstrapServers = optionKafka.Value.BootstrapServers,
-                GroupId = optionKafka.Value.GroupId,
+                BootstrapServers = KafkaConfig.Value.Cunsumer.BootstrapServers,
+                GroupId = KafkaConfig.Value.Cunsumer.GroupId,
                 AutoOffsetReset = AutoOffsetReset.Earliest,
                 EnableAutoCommit = false,
                 EnableAutoOffsetStore = false,
@@ -28,7 +34,7 @@ namespace Project.Infastructure.Kafka.Consumer
                 .SetErrorHandler((_, e) => Console.WriteLine($"❌ Error: {e.Reason}"))
                 .Build();
 
-            _topic = optionKafka.Value.Topic;
+            _topic = KafkaConfig.Value.Cunsumer.Topic;
         }
 
         public async Task ConsumeAsync(Func<TValue, CancellationToken, Task> messageHandler, CancellationToken cancellationToken)
@@ -75,9 +81,6 @@ namespace Project.Infastructure.Kafka.Consumer
             }
         }
 
-        public void Dispose()
-        {
-            _consumer?.Dispose();
-        }
+        public void Dispose() => _consumer?.Dispose();
     }
 }

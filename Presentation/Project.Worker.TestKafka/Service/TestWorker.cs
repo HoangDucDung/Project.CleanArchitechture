@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using Project.Application.Contract.MessageBroker;
-using Project.Host.Base.Lazyloads;
+﻿using Project.Host.Base.Lazyloads;
 using Project.Worker.Base;
 
 namespace Project.Worker.TestKafka.Service

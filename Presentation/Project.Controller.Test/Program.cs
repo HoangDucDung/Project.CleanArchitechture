@@ -1,9 +1,11 @@
-﻿using Project.Controller.Host.Factorys;
-using Project.Host.Base.Configs;
-using System.Reflection;
+﻿
+using Project.Controller.Host.Factorys;
 using Project.Host.Base.Bases;
+using Project.Infastructure.Kafka;
+using System.Reflection;
+using Project.Host.Base.Configs;
 
-namespace Project.Controller.Auth
+namespace Project.Controller.Test
 {
     public class Program
     {
@@ -13,12 +15,11 @@ namespace Project.Controller.Auth
 
             builder.Configuration.AddBaseConfiguration(
             [
-                "auth.json",
-                "connection.json"
+                "kafka.json"
             ]);
 
 
-            var docName = "Auth";
+            var docName = "Test";
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -28,13 +29,12 @@ namespace Project.Controller.Auth
             builder.Services.AddAPIDocument(Assembly.GetExecutingAssembly().GetName().Name ?? "", docName);
 
             // Đăng ký các dịch vụ tùy chỉnh
+            builder.Services.UseMessageBrokerFactory();
             builder.Services.AddLazyloadFactory();
-            builder.Services.UseAppAuthenExtensionFactory();
-            builder.Services.UserDomainManagerServiceFactory();
 
             // Đăng ký các options
-            builder.Services.GetAuthConfig(builder.Configuration);
-            builder.Services.GetConnectionConfig(builder.Configuration);
+            builder.Services.GetKafkaConfig(builder.Configuration);
+            builder.Services.GetProducerCommonConfig(builder.Configuration);
 
             var app = builder.Build();
 

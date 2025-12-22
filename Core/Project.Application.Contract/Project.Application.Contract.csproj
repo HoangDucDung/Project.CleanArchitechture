@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Project.Domain.Share\Project.Domain.Share.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\MessageBroker\" />
+  </ItemGroup>
+
 </Project>

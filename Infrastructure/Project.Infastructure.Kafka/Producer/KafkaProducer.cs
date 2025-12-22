@@ -3,6 +3,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Project.Application.Contract.MessageBroker;
 using Project.Application.Contract.Models.MessageBroker;
+using Project.Extensions.Extensions;
+using Project.Libs.Exceptions;
 
 namespace Project.Infastructure.Kafka.Producer
 {
@@ -12,11 +14,21 @@ namespace Project.Infastructure.Kafka.Producer
         private readonly string _topic;
 
         private readonly ILogger<KafkaProducer<TKey, TValue>> _logger;
-        public KafkaProducer(IOptions<OptionKafka> optionKafka, ISerializer<TKey> key, ISerializer<TValue> value, ILogger<KafkaProducer<TKey, TValue>> logger)
+        public KafkaProducer(IOptions<KafkaConfig> KafkaConfig, IOptions<ProducerCustomConfig> ProducerCommon, ISerializer<TKey> key, ISerializer<TValue> value, ILogger<KafkaProducer<TKey, TValue>> logger)
         {
+            if (KafkaConfig.Value == null) throw new BusinessException("Không lấy được Kafka producer options.");
+
+            if ((ProducerCommon.Value == null || ProducerCommon.Value.BootstrapServers.IsNullOrEmpty()) && KafkaConfig.Value?.Producer == null) throw new BusinessException("Không cấu hình Kafka producer options.");
+
+            //Lấy cấu hình chung nếu kafka với options topic đó không cáu hình
+            if (KafkaConfig.Value?.Producer == null)
+            {
+                KafkaConfig.Value!.Producer = ProducerCommon.Value;
+            }
+
             var config = new ProducerConfig
             {
-                BootstrapServers = optionKafka.Value.BootstrapServers,
+                BootstrapServers = KafkaConfig.Value.Producer!.BootstrapServers,
                 Acks = Acks.All,
                 EnableIdempotence = true,
                 MaxInFlight = 5,
@@ -33,7 +45,7 @@ namespace Project.Infastructure.Kafka.Producer
                 .SetLogHandler((_, log) => _logger.LogInformation($"Kafka Log: {log.Message}"))
                 .Build();
 
-            _topic = optionKafka.Value.Topic;
+            _topic = KafkaConfig.Value.Producer.Topic;
         }
 
         public async Task ProduceAsync(TKey key, TValue value)

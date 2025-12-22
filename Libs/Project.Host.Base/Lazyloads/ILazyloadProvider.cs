@@ -2,8 +2,8 @@
 {
     public interface ILazyloadProvider : IDisposable
     {
-        T LazyGetRequiredService<T>();
+        T GetRequiredService<T>();
 
-        T? LazyGetService<T>();
+        T? GetService<T>();
     }
 }

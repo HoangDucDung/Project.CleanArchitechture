@@ -1,6 +1,6 @@
 ﻿namespace Project.Host.Base.Configs
 {
-    public class ConnectionConfig
+    public class ConnectionString
     {
         public string SqlServer { get; set; } = string.Empty;
         public string MongoDB { get; set; } = string.Empty;

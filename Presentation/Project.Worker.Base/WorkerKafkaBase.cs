@@ -10,8 +10,8 @@ namespace Project.Worker.Base
 
         protected WorkerKafkaBase(ILazyloadProvider lazyloadProvider)
         {
-            _consumer = lazyloadProvider.LazyGetRequiredService<IMessageConsumer<TValue>>();
-            _logger = lazyloadProvider.LazyGetRequiredService<ILogger<TService>>();
+            _consumer = lazyloadProvider.GetRequiredService<IMessageConsumer<TValue>>();
+            _logger = lazyloadProvider.GetRequiredService<ILogger<TService>>();
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)

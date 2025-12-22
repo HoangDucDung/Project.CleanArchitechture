@@ -54,6 +54,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Worker.Base", "Pres
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Worker.TestKafka", "Presentation\Project.Worker.TestKafka\Project.Worker.TestKafka.csproj", "{4F7345E3-A836-46DD-926B-9BF75898A1D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Controller.Test", "Presentation\Project.Controller.Test\Project.Controller.Test.csproj", "{A9A976C4-DB0C-4648-8319-4AA8463E0BFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,10 @@ Global
 		{4F7345E3-A836-46DD-926B-9BF75898A1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F7345E3-A836-46DD-926B-9BF75898A1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F7345E3-A836-46DD-926B-9BF75898A1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A976C4-DB0C-4648-8319-4AA8463E0BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A976C4-DB0C-4648-8319-4AA8463E0BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A976C4-DB0C-4648-8319-4AA8463E0BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A976C4-DB0C-4648-8319-4AA8463E0BFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +152,7 @@ Global
 		{3E33429D-7948-4458-AF36-B9123F57DBAA} = {E9DDAE89-E015-4681-B804-066F7743AC68}
 		{6EE03922-FC7C-48CB-8694-A2EC193D2C2E} = {3E33429D-7948-4458-AF36-B9123F57DBAA}
 		{4F7345E3-A836-46DD-926B-9BF75898A1D0} = {3E33429D-7948-4458-AF36-B9123F57DBAA}
+		{A9A976C4-DB0C-4648-8319-4AA8463E0BFA} = {E9DDAE89-E015-4681-B804-066F7743AC68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AFEDBB5-198B-41F2-ACEA-803F4D249A81}

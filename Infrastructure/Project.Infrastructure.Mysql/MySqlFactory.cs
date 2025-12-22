@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Project.Domain
+namespace Project.Infrastructure.Mysql
 {
-    public static class DomainFactory
+    public static class MySqlFactory
     {
         /// <summary>
         /// Add base domain services

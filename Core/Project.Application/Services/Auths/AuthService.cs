@@ -12,7 +12,7 @@ namespace Project.Application.Services.Auths
 {
     public class AuthService(ILazyloadProvider lazyloadProvider) : ApplicationServiceBase(lazyloadProvider), IAuthService
     {
-        private ITokenManager tokenManager => lazyloadProvider.LazyGetRequiredService<ITokenManager>();
+        private ITokenManager tokenManager => lazyloadProvider.GetRequiredService<ITokenManager>();
 
         public async Task<ResAuthenticationDto> LoginAsync(ReqUserLoginDto req, CancellationToken cancellationToken = default)
         {

@@ -12,7 +12,7 @@ namespace Project.Domain.Services.Auths
 {
     public class TokenManager(ILazyloadProvider lazyloadProvider) : ManagerServiceBase(lazyloadProvider), ITokenManager
     {
-        private IOptions<AuthConfig> _authConfig => lazyloadProvider.LazyGetRequiredService<IOptions<AuthConfig>>();
+        private IOptions<AuthConfig> _authConfig => lazyloadProvider.GetRequiredService<IOptions<AuthConfig>>();
 
         public ResToken GenerateToken(ReqToken param)
         {

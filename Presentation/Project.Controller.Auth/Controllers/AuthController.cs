@@ -11,7 +11,7 @@ namespace Project.Controller.Auth.Controllers
     [AllowAnonymous]
     public class AuthController(ILazyloadProvider lazyloadProvider) : BaseController(lazyloadProvider)
     {
-        IAuthService _authService => _lazyloadProvider.LazyGetRequiredService<IAuthService>();
+        private IAuthService _authService => _lazyloadProvider.GetRequiredService<IAuthService>();
 
         /// <summary>
         /// Đăng nhập
