@@ -39,7 +39,7 @@ namespace Project.Controller.Auth
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            //if (app.Environment.IsDevelopment())
                 app.UseAPIDocument(docName);
 
             // Sử dụng middleware tùy chỉnh

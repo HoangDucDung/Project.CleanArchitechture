@@ -9,10 +9,10 @@ namespace Project.Domain.Entities.MogoDB.Notifications
         [BsonId]
         public Guid ConfigId { get; set; }
 
-        public string ConfigCode { get; set; }
+        public string ConfigCode { get; set; } = string.Empty;
 
-        public string ConfigName { get; set; }
+        public string ConfigName { get; set; } = string.Empty;
 
-        public object ConfigData { get; set; }
+        public object ConfigData { get; set; } = new();
     }
 }
