@@ -23,7 +23,7 @@ namespace Project.Controller.Auth.Controllers
         public async Task<ResAuthenticationDto> LoginAsync([FromBody] ReqUserLoginDto param, CancellationToken cancellationToken = default)
         {
             var res = await _authService.LoginAsync(param, cancellationToken);
-            return res;
+            return res;123
         }
     }
 }
