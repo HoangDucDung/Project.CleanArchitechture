@@ -37,7 +37,7 @@ namespace Project.Infastructure.Kafka.Consumer
             _topic = KafkaConfig.Value.Cunsumer.Topic;
         }
 
-        public async Task ConsumeAsync(Func<TValue, CancellationToken, Task> messageHandler, CancellationToken cancellationToken)
+        public async Task ConsumeAsync(Func<TValue, CancellationToken, Task> messageHandler, Guid workerId, CancellationToken cancellationToken)
         {
             _consumer.Subscribe(_topic);
             Console.WriteLine($"🎧 Subscribed to topic: {_topic}");
@@ -50,11 +50,13 @@ namespace Project.Infastructure.Kafka.Consumer
 
                     try
                     {
+                        Console.WriteLine($"🔄 Worker {workerId} is polling for messages...");
                         result = _consumer.Consume(cancellationToken);
 
                         await messageHandler(result.Message.Value, cancellationToken);
 
                         _consumer.Commit(result);
+                        Console.WriteLine($"✅ Message at {result.TopicPartitionOffset} processed and committed.");
                     }
                     catch (OperationCanceledException)
                     {
