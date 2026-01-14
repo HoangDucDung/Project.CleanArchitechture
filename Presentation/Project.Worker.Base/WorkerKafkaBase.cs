@@ -12,11 +12,14 @@ namespace Project.Worker.Base
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly int _workerCount = 0; // Cho phép cấu hình số lượng worker
 
+        /// <summary>
+        /// Cấu hình số lượng consumer
+        /// </summary>
+        /// <returns></returns>
         protected abstract int WorkerCount();
 
         protected WorkerKafkaBase(ILazyloadProvider lazyloadProvider)
         {
-            // Giả sử ILazyloadProvider có phương thức GetRequiredService
             _lazyloadProvider = lazyloadProvider;
             _scopeFactory = _lazyloadProvider.GetRequiredService<IServiceScopeFactory>();
             _logger = _lazyloadProvider.GetRequiredService<ILogger<TService>>();
@@ -40,6 +43,12 @@ namespace Project.Worker.Base
             await Task.WhenAll(tasks);
         }
 
+        /// <summary>
+        /// Xử lý khởi tạo consumer và lắng nghe message và execute action
+        /// </summary>
+        /// <param name="workerId"></param>
+        /// <param name="stoppingToken"></param>
+        /// <returns></returns>
         private async Task RunConsumerLoop(Guid workerId, CancellationToken stoppingToken)
         {
             _logger.LogInformation("Worker instance {id} started.", workerId);
@@ -55,7 +64,7 @@ namespace Project.Worker.Base
                     _logger.LogDebug("Worker {id} is consuming...", workerId);
 
                     // Giả sử ConsumeAsync sẽ block cho đến khi có message hoặc token cancel
-                    await consumer.ConsumeAsync(HandleMessageAsync, workerId, stoppingToken);
+                    await consumer.ConsumeAsync(DoWork, workerId, stoppingToken);
                 }
                 catch (OperationCanceledException)
                 {
@@ -73,19 +82,12 @@ namespace Project.Worker.Base
             }
         }
 
-        private async Task HandleMessageAsync(TValue message, CancellationToken token)
-        {
-            try
-            {
-                await DoWork(message, token);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Kafka message processing failed");
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// Hàm thực hiện action khi nhận được message từ kafka
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         protected abstract Task DoWork(TValue message, CancellationToken cancellationToken);
     }
 }
