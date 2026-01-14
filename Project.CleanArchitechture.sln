@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{882703
 		Configs\auth.json = Configs\auth.json
 		Configs\connection.json = Configs\connection.json
 		Configs\kafka.json = Configs\kafka.json
+		Configs\consumerConfig.json = Configs\consumerConfig.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Infrastructure.Base", "Infrastructure\Project.Infrastructure.Base\Project.Infrastructure.Base.csproj", "{F3E88ACB-912C-40C7-9E74-17AA4A93203A}"

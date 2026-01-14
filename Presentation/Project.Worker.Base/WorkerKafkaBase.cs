@@ -7,14 +7,20 @@ namespace Project.Worker.Base
     public abstract class WorkerKafkaBase<TService, TValue> : BackgroundService
     {
         protected readonly ILogger<TService> _logger;
+        protected readonly ILazyloadProvider _lazyloadProvider;
+
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly int _workerCount = 3; // Cho phép cấu hình số lượng worker
+
+        protected abstract int WorkerCount();
 
         protected WorkerKafkaBase(ILazyloadProvider lazyloadProvider)
         {
             // Giả sử ILazyloadProvider có phương thức GetRequiredService
-            _scopeFactory = lazyloadProvider.GetRequiredService<IServiceScopeFactory>();
-            _logger = lazyloadProvider.GetRequiredService<ILogger<TService>>();
+            _lazyloadProvider = lazyloadProvider;
+            _scopeFactory = _lazyloadProvider.GetRequiredService<IServiceScopeFactory>();
+            _logger = _lazyloadProvider.GetRequiredService<ILogger<TService>>();
+            _workerCount = WorkerCount();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)

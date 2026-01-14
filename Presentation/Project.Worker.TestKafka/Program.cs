@@ -16,6 +16,7 @@ namespace Project.Worker.TestKafka
             {
                 config.AddBaseConfiguration([
                     "kafka.json",
+                    "consumerConfig.json",
                 ]);
             });
 
@@ -26,6 +27,7 @@ namespace Project.Worker.TestKafka
                 // Đăng ký các options
                 services.GetKafkaConfig(context.Configuration);
                 services.GetProducerCommonConfig(context.Configuration);
+                services.GetConsumerTestKafkaConfig(context.Configuration);
 
                 services.AddHostedService<TestWorker>();
             });
