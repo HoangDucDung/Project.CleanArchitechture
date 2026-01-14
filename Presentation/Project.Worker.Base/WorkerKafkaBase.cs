@@ -10,7 +10,7 @@ namespace Project.Worker.Base
         protected readonly ILazyloadProvider _lazyloadProvider;
 
         private readonly IServiceScopeFactory _scopeFactory;
-        private readonly int _workerCount = 3; // Cho phép cấu hình số lượng worker
+        private readonly int _workerCount = 0; // Cho phép cấu hình số lượng worker
 
         protected abstract int WorkerCount();
 
