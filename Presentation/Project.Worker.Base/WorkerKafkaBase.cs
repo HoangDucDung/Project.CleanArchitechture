@@ -1,6 +1,6 @@
 ﻿using Project.Application.Contract.MessageBroker;
 using Project.Extensions.Extensions;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Worker.Base
 {

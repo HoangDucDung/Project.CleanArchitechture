@@ -5,8 +5,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
-using Project.Host.Base.Lazyloads;
 using Project.Host.Base.Configs;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Domain.Services.Auths
 {

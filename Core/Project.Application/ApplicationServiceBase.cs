@@ -1,5 +1,6 @@
 ﻿
-using Project.Host.Base.Lazyloads;
+
+using Project.Libs.DependencyInjection;
 
 namespace Project.Application
 {

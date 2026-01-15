@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Project.Domain.Repositories.Base;
 using Project.Extensions.Extensions;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Reflection;

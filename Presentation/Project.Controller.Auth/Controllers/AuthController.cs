@@ -4,7 +4,7 @@ using Project.Application.Contract.Models.Auths;
 using Project.Application.Contract.Models.Auths.Logins;
 using Project.Application.Contract.Services.Auths;
 using Project.Controller.Base.Controller;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Controller.Auth.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Project.Host.Base.Configs;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 using Project.Worker.Base;
 
 namespace Project.Worker.TestKafka.Service

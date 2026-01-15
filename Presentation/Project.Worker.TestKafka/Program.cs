@@ -1,8 +1,8 @@
 ﻿using Project.Host.Base.Bases;
-using Project.Host.Base.Lazyloads;
 using Project.Infastructure.Kafka;
 using Project.Worker.TestKafka.Service;
 using Project.Host.Base.Configs;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Worker.TestKafka
 {

@@ -2,7 +2,7 @@
 using MongoDB.Driver;
 using Project.Domain.Repositories.Base;
 using Project.Host.Base.Configs;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 using System.Collections.Concurrent;
 
 namespace Project.Infrastructure.MongoDB

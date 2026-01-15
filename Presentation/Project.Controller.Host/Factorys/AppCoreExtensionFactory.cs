@@ -1,6 +1,6 @@
 ﻿using Project.Application;
 using Project.Domain.Services;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Controller.Host.Factorys
 {
@@ -8,7 +8,9 @@ namespace Project.Controller.Host.Factorys
     {
         public static IServiceCollection AddLazyloadFactory(this IServiceCollection service)
         {
-            return service.AddScoped<ILazyloadProvider, LazyloadProvider>();
+            service.AddScoped<ICachedServiceProviderBase, CachedServiceProviderBase>();
+            service.AddScoped<ILazyloadProvider, LazyloadProvider>();
+            return service;
         }
 
         public static IServiceCollection UseAppAuthenExtensionFactory(this IServiceCollection services)

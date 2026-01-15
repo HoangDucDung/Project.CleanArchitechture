@@ -5,7 +5,7 @@ using Project.Application.Contract.Services.Auths;
 using Project.Domain.Models.Auths;
 using Project.Domain.Services.Auths;
 using Project.Extensions.Extensions;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 using Project.Libs.Exceptions;
 
 namespace Project.Application.Services.Auths

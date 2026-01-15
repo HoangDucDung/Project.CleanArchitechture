@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Controller.Base.Controller
 {
