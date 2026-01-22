@@ -8,7 +8,7 @@ namespace Project.Libs.DependencyInjection
         protected IServiceProvider _serviceProvider { get; }
         protected ConcurrentDictionary<ServiceIdentifier, Lazy<object?>> CachedServices { get; }
 
-        protected CachedServiceProviderBase(IServiceProvider serviceProvider)
+        public CachedServiceProviderBase(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
             CachedServices = new ConcurrentDictionary<ServiceIdentifier, Lazy<object?>>();
