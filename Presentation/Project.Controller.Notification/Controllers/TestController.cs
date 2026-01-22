@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Project.Controller.Base.Controller;
-using Project.Host.Base.Lazyloads;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Controller.Notification.Controllers
 {
