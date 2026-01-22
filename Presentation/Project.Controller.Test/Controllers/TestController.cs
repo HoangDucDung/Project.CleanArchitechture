@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Project.Application.Contract.MessageBroker;
 using Project.Controller.Base.Controller;
-using Project.Host.Base.Lazyloads;
-using System.Threading.Tasks;
+using Project.Libs.DependencyInjection;
 
 namespace Project.Controller.Test.Controllers
 {
